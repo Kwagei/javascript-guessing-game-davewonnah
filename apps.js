@@ -14,7 +14,12 @@ restart.addEventListener("click", function(event){
         btn.appendChild(button);
     }
 
+    const div_txt = document.querySelector('.txt-area');
+    div_txt.style.display = 'none';
+
     
+
+
 
 
     
