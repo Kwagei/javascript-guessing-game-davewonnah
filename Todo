@@ -1,0 +1,13 @@
+# If the game is started user should have 7 lives
+
+# user should have 250 random numbers 
+
+# write a function that reduces live when user click a button
+
+# check whether the number that is click on is less than random number if so return guess to low
+
+# check whether the number that is click on is greater than random number if so return guess to high
+
+
+# check whether the number that is click on is eqal to random number if so return  guess to congrats you have won 
+ 

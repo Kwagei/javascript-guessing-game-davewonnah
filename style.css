@@ -19,12 +19,7 @@ header{
     padding: 15px;
     color:rgb(5, 5, 63);
 }
-/* .lives:hover{
-    background-color: rgb(5, 5, 63);
-    color: #fff;
-    border: 1px solid #fff;
-    cursor: pointer;
-} */
+
 .start{
     background-color: #fff;
     margin-right: 20px;
@@ -42,12 +37,19 @@ header{
 
 main{
     width: 100%;
-    background-color: aqua;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2rem 0px;
 }   
+
+.txt-area{
+    padding: 2rem;
+    display: none;
+    margin-bottom: 15px;
+    font-size: 35px;
+}
 
 
 
@@ -57,29 +59,15 @@ button{
     color: #000;
     font-weight: 200;
     font-size: large;
-    box-shadow: 1px 1px 4px var(--black);
+    width: 60px;
+    height: 60px;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
 
 }
 
+section{
+    width: 85%;
+    margin: 3.5px;
+}
 
 
-/* mobile view starts here */
-
-/* @media (max-width: 420px) and (min-width:320px) {
-   .lives{
-    font-size: 10px;
-    padding: -8rem;
-   }
-   .restartGame{
-    padding: -8px;
-   }
-   .heading{
-    background-color: aqua;
-    font-size: 10px;
-   }
-} */
