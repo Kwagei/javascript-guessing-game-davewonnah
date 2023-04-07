@@ -4,10 +4,7 @@ const live = document.querySelector('.lives');
 let live_num = document.querySelector('.live_num');
 let num = [];
 
-for (let i = 1; i <= 250; i++) {
-    num.push(i);
-  }
-
+resetNumArray();
 
 restart.addEventListener("click", function(){
     
@@ -16,29 +13,37 @@ restart.addEventListener("click", function(){
 
     const div_txt = document.querySelector('.txt-area');
     div_txt.style.display = 'none';
-    // num.length = 0;
-    addnum ();
-
-   
-           
+    
+    resetNumArray();
+    addnum();
 })
      
-const numArray = [];
 
 function addnum() {
   
-    for (let i = 0; i < 250; i++) {
+    for (let i = 0; i < 150; i++) {
       const button = document.createElement("button");
       const randomNumber = Math.floor(Math.random() * num.length);
-      numArray.push(num[randomNumber]);
+      num.push(num[randomNumber]);
       button.textContent = num[randomNumber];
       num.splice(randomNumber,1);
       btn.appendChild(button);
     
     }
   
-    console.log(numArray);
     console.log(num);
+}
+
+
+function resetNumArray() {
+  num =[]
+  for (let i = 1; i <= 150; i++) {
+    num.push(i);
   }
+}
+
+
+
+
   
  
