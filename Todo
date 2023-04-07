@@ -1,6 +1,10 @@
-# If the game is started user should have 7 lives
+# If the game is started user should have 7 lives ***done***
 
-# user should have 250 random numbers 
+# generate 250 buttons ***done***
+
+# user should have 250 random numbers ***done***
+
+# append the random numbers to the buttons
 
 # write a function that reduces live when user click a button
 
