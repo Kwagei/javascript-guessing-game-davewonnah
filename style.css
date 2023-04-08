@@ -63,6 +63,14 @@ button{
     cursor: pointer;
 }
 
+.incorrect {
+    background-color: red;
+}
+.correct {
+    background-color: rgb(0, 255, 68);
+}
+  
+
 section{
     width: 85%;
     margin: 3.5px;

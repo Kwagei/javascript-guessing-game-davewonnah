@@ -1,46 +1,88 @@
 const btn = document.querySelector('.btn');
 const restart = document.querySelector('#restartGame');
 const live = document.querySelector('.lives');
-let live_num = document.querySelector('.live_num');
-let num = [];
+const live_num = 7;
+const div_txt = document.querySelector('.txt-area');
 
-resetNumArray();
+let numArray = [];
 
 restart.addEventListener("click", function(){
     
-    live.innerHTML = 7;
     btn.innerHTML = "";
-
-    const div_txt = document.querySelector('.txt-area');
+    live.innerHTML = `Lives = ${live_num}`
     div_txt.style.display = 'none';
     
-    resetNumArray();
+    numArray = resetNumArray(100);
     addnum();
 })
      
-
 function addnum() {
+    const num = shuffle([...numArray]);
   
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < num.length; i++) {
       const button = document.createElement("button");
-      const randomNumber = Math.floor(Math.random() * num.length);
-      num.push(num[randomNumber]);
-      button.textContent = num[randomNumber];
-      num.splice(randomNumber,1);
+      button.textContent = num[i];
+      button.addEventListener("click", handleClick);
       btn.appendChild(button);
-    
+
+
     }
   
-    console.log(num);
+    console.log(numArray);
+}
+
+function resetNumArray(numCount) {
+  const nums = [];
+  for (let i = 1; i <= numCount; i++) {
+    nums.push(i);
+  }
+  return nums;
+}
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const random_num = Math.floor(Math.random() * (i + 1));
+    [array[i], array[random_num]] = [array[random_num], array[i]];
+  }
+  return array;
 }
 
 
-function resetNumArray() {
-  num =[]
-  for (let i = 1; i <= 150; i++) {
-    num.push(i);
+function handleClick(event) {
+  const value = event.target.textContent;
+  const randomNumber = numArray[Math.floor(Math.random() * numArray.length)];
+
+  if (value == randomNumber) {
+    div_txt.style.display = 'block';
+    div_txt.textContent = "Congrats you've won!";
+
+    const buttons = document.querySelectorAll('.btn button');
+    buttons.forEach(button => {
+      if (button.textContent != randomNumber) {
+        button.disabled = true;
+      }
+    });
+
+  } else if(value < randomNumber) {
+    div_txt.style.display = 'block';
+    div_txt.textContent = "Guess too low!";
+  } else if(value > randomNumber){
+    div_txt.style.display = 'block';
+    div_txt.textContent = "Guess too high";
+  }
+
+  if (value != randomNumber) {
+    event.target.disabled = true;
+    event.target.classList.add('incorrect');
+  } else if (value == randomNumber) {
+    event.target.disabled = true;
+    event.target.classList.add('correct');
   }
 }
+
+
+
+
 
 
 
