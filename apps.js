@@ -1,10 +1,13 @@
 const btn = document.querySelector('.btn');
 const restart = document.querySelector('#restartGame');
 const live = document.querySelector('.lives');
-const live_num = 7;
+let live_num = 7;
 const div_txt = document.querySelector('.txt-area');
 
 let numArray = [];
+let randomNumber = Math.floor(Math.random() * 100);
+
+
 
 restart.addEventListener("click", function(){
     
@@ -14,6 +17,7 @@ restart.addEventListener("click", function(){
     
     numArray = resetNumArray(100);
     addnum();
+    randomNumber = Math.floor(Math.random() * numArray.length)
 })
      
 function addnum() {
@@ -49,17 +53,21 @@ function shuffle(array) {
 
 
 function handleClick(event) {
-  const value = event.target.textContent;
-  const randomNumber = numArray[Math.floor(Math.random() * numArray.length)];
+  const value = Number(event.target.textContent);
+  // const live_value = Number(live.target.textContent);
+
+  console.log({value, randomNumber})
 
   if (value == randomNumber) {
     div_txt.style.display = 'block';
     div_txt.textContent = "Congrats you've won!";
 
     const buttons = document.querySelectorAll('.btn button');
+
     buttons.forEach(button => {
       if (button.textContent != randomNumber) {
         button.disabled = true;
+        button.style.backgroundColor = 'red'
       }
     });
 
@@ -78,6 +86,17 @@ function handleClick(event) {
     event.target.disabled = true;
     event.target.classList.add('correct');
   }
+
+  if (value !== randomNumber) {
+
+    live_num = live_num-1;
+    live.textContent = `Lives = ${live_num}`;
+  }
+  // else if (live_value === 0){
+  //   div_txt.textContent = "Game over!!!";
+  // }
+  // console.log(live_value)
+  
 }
 
 

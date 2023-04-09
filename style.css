@@ -76,4 +76,10 @@ section{
     margin: 3.5px;
 }
 
+@media only screen and (min-width: 320px) and (max-width: 420px) {
+    .txt-area{
+        font-size: 20px;
+    }
+}
+
 
