@@ -92,19 +92,16 @@ function handleClick(event) {
     live_num = live_num-1;
     live.textContent = `Lives = ${live_num}`;
   }
-  // else if (live_value === 0){
-  //   div_txt.textContent = "Game over!!!";
-  // }
-  // console.log(live_value)
+  if (live_num == 0) {
+    div_txt.style.display = 'block';
+    div_txt.textContent = "Sorry, Game over!";
+    const buttons = document.querySelectorAll('.btn button');
+    buttons.forEach(button => {
+      button.disabled = true;
+      button.style.backgroundColor = 'red';
+    });
+  }
   
 }
 
 
-
-
-
-
-
-
-  
- 
