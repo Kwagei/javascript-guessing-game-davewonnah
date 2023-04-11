@@ -10,6 +10,7 @@ let randomNumber = Math.floor(Math.random() * 100);
 
 
 restart.addEventListener("click", function(){
+    live_num = 7;
     
     btn.innerHTML = "";
     live.innerHTML = `Lives = ${live_num}`
